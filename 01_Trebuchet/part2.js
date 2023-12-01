@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const path = require("path");
 
 const numericMap = {
   one: 1,
@@ -22,7 +23,7 @@ const appendDigits = (line) => {
   return reverse(line);
 };
 
-const data = fs.readFileSync("input", "utf-8");
+const data = fs.readFileSync(path.resolve(__dirname, './input'), "utf-8");
 const lines = data.trimEnd().split("\n").map(appendDigits);
 const values = [];
 
