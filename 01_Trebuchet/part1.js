@@ -1,7 +1,7 @@
-const fs = require('node:fs');
+const fs = require("node:fs");
 const path = require("path");
 
-const data = fs.readFileSync(path.resolve(__dirname, './input'), "utf-8");
+const data = fs.readFileSync(path.resolve(__dirname, "./input"), "utf-8");
 const lines = data.trimEnd().split("\n");
 const values = [];
 
