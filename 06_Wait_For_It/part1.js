@@ -23,7 +23,6 @@ for (let i = 0; i < times.length; i++) {
   if (ways) {
     total *= ways;
   }
-
 }
 
 console.log(`The number of ways multiplied together is ${total}`);
