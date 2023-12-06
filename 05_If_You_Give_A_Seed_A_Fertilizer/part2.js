@@ -13,7 +13,7 @@ for (let i = 0; i < seeds.length; i += 2) {
 }
 
 for (const map of maps) {
-  const newRanges = [];
+  const nextRanges = [];
 
   while (ranges.length) {
     const [start, end] = ranges.pop();
@@ -28,7 +28,7 @@ for (const map of maps) {
 
       if (maxStart < minEnd) {
         isIntersect = true;
-        newRanges.push([maxStart + shift, minEnd + shift]);
+        nextRanges.push([maxStart + shift, minEnd + shift]);
 
         if (maxStart > start) {
           ranges.push([start, maxStart]);
@@ -43,11 +43,11 @@ for (const map of maps) {
     }
 
     if (!isIntersect) {
-      newRanges.push([start, end]);
+      nextRanges.push([start, end]);
     }
   }
 
-  ranges = newRanges;
+  ranges = nextRanges;
 }
 
 const lowestLocation = Math.min(...ranges.map(range => range[0]));
