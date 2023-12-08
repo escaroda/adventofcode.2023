@@ -1,16 +1,16 @@
 const fs = require("node:fs");
 const path = require("path");
 
+// https://stackoverflow.com/a/49722579/3972289
 const gcd = (a, b) => a ? gcd(b % a, a) : b;
 const lcm = (a, b) => a * b / gcd(a, b);
 
 const data = fs.readFileSync(path.resolve(__dirname, "./input"), "utf-8");
 const [lr, network] = data.trimEnd().split("\n\n");
 
-const moves = lr.split("").map(move => Number(move === "R"));
+const moves = [...lr].map(move => Number(move === "R"));
 const nodes = network.split("\n").reduce((acc, cur) => {
-  const [node, instruction] = cur.split(" = (");
-  const [left, right] = instruction.split(/[^A-Z]+/);
+  const [node, left, right] = cur.split(/[^A-Z]+/);
   return acc.set(node, [left, right]);
 }, new Map());
 
