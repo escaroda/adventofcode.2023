@@ -16,6 +16,7 @@ https://adventofcode.com/2023/
 |  9|  √  |       |   |
 | 10|  √  |       |   |
 | 11|  √  |       |   |
+| 12|  ½  |       |   |
 
 Node.js v20.10.0  
 Python 3.10.12  
