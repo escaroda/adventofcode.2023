@@ -1,10 +1,15 @@
 const fs = require("node:fs");
 const path = require("path");
 
+const UNFOLD_RATIO = 5;
+
 const data = fs.readFileSync(path.resolve(__dirname, "./input"), "utf-8");
 const lines = data.trimEnd().split("\n").map(line => {
   const [springs, groups] = line.split(" ");
-  return [springs, groups.split(",").map(Number)];
+  return [
+    Array(UNFOLD_RATIO).fill(springs).join("?"),
+    Array(UNFOLD_RATIO).fill(groups).join(",").split(",").map(Number),
+  ];
 });
 
 const cache = new Map();
