@@ -33,7 +33,7 @@ function count(springs, groups) {
   let result = 0;
 
   if (".?".includes(springs[0])) {
-    result += count(springs.slice(1), [...groups])
+    result += count(springs.slice(1), [...groups]);
   }
 
   const g = groups[0];
@@ -44,7 +44,7 @@ function count(springs, groups) {
     !springs.slice(0, g).includes(".") &&
     (g === springs.length || springs[g] !== "#")
   ) {
-    result += count(springs.slice(g + 1), groups.slice(1))
+    result += count(springs.slice(g + 1), groups.slice(1));
   }
 
   cache.set(key, result);
