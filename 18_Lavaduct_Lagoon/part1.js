@@ -1,5 +1,5 @@
 /**
- * This is a straight forward solution that reconstruct the lagoon in Two-Dimensional Array;
+ * This is a straight forward solution that reconstructs the lagoon in Two-Dimensional Array;
  * Second part would require mathematical approach because of much bigger distances;
  */
 
