@@ -28,10 +28,6 @@ const parts = {
   s: [MIN_RATING, MAX_RATING],
 };
 
-function getPartsCopy(parts) {
-  return Object.entries(parts).reduce((acc, [cat, [min, max]]) => (acc[cat] = [min, max], acc), {});
-}
-
 function getPartsCombinations(parts) {
   return Object.entries(parts).reduce((acc, [_, [min, max]]) => acc *= max - min + 1, 1);
 }
@@ -57,7 +53,7 @@ while (stack.length) {
   while (rules = workflows[dest]) {
     for (const rule of rules.slice(0, -1)) {
       const [cat, rate, destionation, c] = rule;
-      const copy = getPartsCopy(parts);
+      const copy = structuredClone(parts);
 
       condition[c](parts, copy, cat, +rate);
       stack.push([copy, destionation]);
